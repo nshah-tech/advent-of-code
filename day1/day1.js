@@ -1,9 +1,8 @@
 
-import { readFile } from 'fs/promises';
+const fs = require('fs/promises')
 
 const start = async () => {
-    console.log(process.cwd());
-    const fileData = (await readFile(__dirname + '/input.txt')).toString().split("\n");
+    const fileData = (await fs.readFile(__dirname + '/input.txt')).toString().split("\n");
     let calorieArray = [];
     let currentValue = 0;
     fileData.forEach((element) => {
