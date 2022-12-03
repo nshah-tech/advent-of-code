@@ -6,6 +6,7 @@
   "scripts": {
     "day1": "node day1/day1.js",
     "day2": "node day2/day2.js",
+    "day3": "node day3/day3.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint **/*.js"
   },
