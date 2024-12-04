@@ -1,7 +1,10 @@
+const startTime = performance.now();
 import { createReadStream } from 'fs';
 import readline from 'readline';
 
+// Const FilePath = 'utils/day1-part2-example'
 const FilePath = 'utils/day1';
+// Const FilePath = 'utils/day1-example'
 
 const fileStream = createReadStream(FilePath);
 
@@ -24,25 +27,21 @@ const stringNumber = [
   { str: 'nine', num: '9' },
 ];
 
-function addNumber(stringLine: string, index: number, number: string) {
+function addNumber(stringLine, index, number) {
   return stringLine.substring(0, index) + number + stringLine.substring(index);
 }
 
-interface StringNumberObj {
-  index: number;
-  num: string;
-}
-const emptyStringNumberObj = (): StringNumberObj => {
+const emptyStringNumberObj = () => {
   return {
     index: -1,
     num: '',
   };
 };
 
-function convertStringToNumber(stringLineOriginal: string) {
+function convertStringToNumber(stringLineOriginal) {
   let stringLine = stringLineOriginal;
-  let firstNumber: StringNumberObj = emptyStringNumberObj();
-  let lastNumber: StringNumberObj = emptyStringNumberObj();
+  let firstNumber = emptyStringNumberObj();
+  let lastNumber = emptyStringNumberObj();
   for (let index = 0; index < stringNumber.length; index++) {
     let startIndex = 0;
     let searchIndex = stringLine.indexOf(stringNumber[index].str);
@@ -62,7 +61,7 @@ function convertStringToNumber(stringLineOriginal: string) {
   return stringLine;
 }
 
-readLineStream.on('line', (line: string) => {
+readLineStream.on('line', (line) => {
   const lineArray = convertStringToNumber(line).split('');
   let firstNumber;
   let lastNumber;
@@ -78,5 +77,6 @@ readLineStream.on('line', (line: string) => {
 });
 
 readLineStream.on('close', () => {
-  console.log('End File sum = ', sum);
+  const endTime = performance.now();
+  console.log('End File sum = ', sum, ' Time = ', endTime - startTime, 'ms')
 });
