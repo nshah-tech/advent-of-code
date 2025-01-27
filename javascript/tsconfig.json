@@ -1,14 +1,11 @@
 {
-  "include": ["script/**/*.ts"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "lib": ["es2021"],
+    "target": "ES6",
     "module": "CommonJS",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "strict": true,
-    "target": "es2021"
-  }
+    "outDir": "./dist",
+    "rootDir": "./scripts",
+    "strict": true
+  },
+  "include": ["scripts/**/*"],
+  "exclude": ["node_modules"]
 }
